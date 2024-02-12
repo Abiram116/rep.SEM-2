@@ -1,30 +1,5 @@
 #include <stdio.h>
 
-void merge(int a[], int l, int m, int h);
-
-void merge_sort(int a[], int l, int h);
-
-int main() {
-    int n, i;
-    printf("Enter number of elements: ");
-    scanf("%d", &n);
-    int a[n];
-
-    printf("\nEnter %d numbers:\n", n);
-    for (i = 0; i < n; i++) {
-        scanf("%d", &a[i]);
-    }
-
-    merge_sort(a, 0, n - 1);
-
-    printf("\nSorted array is : \n");
-    for (i = 0; i < n; i++) {
-        printf("%d ", a[i]);
-    }
-
-    return 0;
-}
-
 // Function to merge two subarrays
 void merge(int a[], int l, int m, int h) {
     int i, j, k;
@@ -61,3 +36,30 @@ void merge_sort(int a[], int l, int h) {
         merge(a, l, m, h); 
     }
 }
+
+void merge_sort(int a[], int l, int h);
+
+int main() {
+    int n, i;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    int a[n];
+
+    printf("\nEnter %d numbers:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+
+    merge_sort(a, 0, n - 1);
+
+    printf("\nSorted array is : \n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+
+    return 0;
+}
+
+
+
+
