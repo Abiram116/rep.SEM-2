@@ -68,7 +68,7 @@ void insert_at_end(){
     if (start == NULL) {
         start = newnode;
     }
-    curr = newnode;
+     curr = newnode;
 } 
 
 /*void insert_at_pos() {
@@ -111,7 +111,65 @@ void insert_at_end(){
     newnode->prev = temp;
 }*/
 
+void insert_pos(int pos){
+    int i,ele;
+    printf("\nEnter the Element for inserting at position-3:");
+    scanf("%d",&ele);
+    if(pos==1){
+        insert_at_begin();
+        return;
+    }
+    struct node *newnode = (struct node*)malloc(sizeof(struct node));
+    struct node *temp=start;
+    while(temp!=NULL){
+        if(i!=pos){
+            i++;
+            temp=temp->next;
+        }
+        else
+            break;
+    }
+    if(temp!=NULL){
+        newnode->data=ele;
+        newnode->next=temp;
+        newnode->prev=temp->prev;
+        temp->prev->next=newnode;
+        temp->prev=newnode;
+    }else
+        insert_at_end();
+        return;
+}
 
+void del_at_begin() {
+    if (start == NULL) {
+        printf("List is empty\n" );
+        return;
+    }
+    struct node *temp = start;
+    printf("\nDeleted element is %d\n", temp->data);
+    start = start->next;
+    free(temp);
+}
+
+
+void del_at_end() {
+    if (start == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    struct node *temp = curr;
+    printf("\nDeleted element is %d\n", temp->data);
+
+    if (start == curr) { // If there's only one node
+        start = NULL;    // Set start to NULL
+    } else {
+        curr->prev->next = NULL;  // Disconnect the last node
+        curr = curr->prev;        // Update curr to point to the new last node
+    }
+
+    free(temp);  // Free the deleted node
+}
 
 
 
@@ -120,11 +178,21 @@ int main(){
     create(10);
     create(20);
     create(30);
+    create(40);
     display_backward();
     display_forward();
     insert_at_begin();
     insert_at_end();
     display_forward();
-    //insert at position to be implemented
+    //insert at position to be implemented(MY CODE)
+    //class code for insert at position
+    insert_pos(3);
+    display_forward();
+    del_at_begin();
+    display_forward();
+    del_at_end();
+    display_forward();
+
+
     return 0;
 }

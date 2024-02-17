@@ -37,8 +37,6 @@ void merge_sort(int a[], int l, int h) {
     }
 }
 
-void merge_sort(int a[], int l, int h);
-
 int main() {
     int n, i;
     printf("Enter number of elements: ");
