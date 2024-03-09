@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define MAX_SIZE 100
+#define MAX_SIZE 10
 
 int deque[MAX_SIZE];
 int front = -1;
@@ -126,7 +126,7 @@ int main() {
                 display();
                 break;
             case 6:
-                printf("Exiting...👋\n");
+                printf("Exiting...\n");
                 return 0;
             default:
                 printf("Invalid choice\n");
